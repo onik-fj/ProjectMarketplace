@@ -324,7 +324,10 @@ button {
 .text-light {
     color: #fff
 }
-
+.col-12{
+    display: flex;
+    justify-content: space-between;
+}
 .section-title {
     font-family: 'Roboto Slab',
         serif;
@@ -332,7 +335,70 @@ button {
     line-height: 30px;
     color: #262D33;
 }
-
+.checkbox-fiter-price{
+    display:inline-flex;
+    align-items: center;
+}
+.checkbox-fiter-price span{
+    font-size: 18px;
+    font-weight: 700;
+    
+}
+.checkbox{
+    visibility: hidden;
+}
+.checkbox-group{
+    position: relative;
+    margin:23.75px 50px 20.75px 20px;
+    width: 50px;
+    height: 25px;
+    background-color: #4592FF;
+    border-radius:50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255,255,255, 0.2);
+}
+.checkbox-group:after{
+    content:'';
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    height: 2px;
+    width: 28px;
+    background-color: #111;
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255,255,255, 0.2);
+}
+.checkbox-label{
+    display: block;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color:#fff;
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 4px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+.checkbox-label:after{
+    content:'';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: 9px;
+    width: 9px;
+    background-color: rgba(199, 181, 241);
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 0px rgba(255,255,255, 0.8);
+}
+.checkbox:checked + .checkbox-label {
+    left: 28px;
+}
+.checkbox:checked + .checkbox-label:after{
+    background-color:#27ae60;
+}
 .more {
     text-decoration: none;
     color: #262D33;

@@ -22,6 +22,7 @@ const cartTableGoods = document.querySelector('.cart-table__goods');
 const cardTableTotal = document.querySelector('.card-table__total');
 const cartCount = document.querySelector('.cart-count');
 const modalForm = document.querySelector('.modal-form');
+const checkboxSwiper = document.querySelector('.checkbox');
 
 const getGoods = async () => {
 	const result = await fetch('db/db.json');
@@ -245,7 +246,14 @@ more.addEventListener('click', function (e) {
 	getGoods().then(renderCards).then(up);
 });
 
-const filterPriceCards = (data) => data.sort((a,b)=> a.price - b.price); //Фильтрация карточек по возростанию цены товара
+const filterPriceCards = function (data) {
+	if(checkboxSwiper.checked){
+		return data.sort((a,b)=> b.price - a.price);
+	}
+	else{
+		return data.sort((a,b)=> a.price - b.price);
+	}
+}; //Фильтрация карточек по возростанию цены товара
 
 const filterCards = function (field, value) {
 	getGoods()
@@ -266,21 +274,6 @@ navigationLink.forEach(function (link) {
 		else {
 			getGoods().then(filterPriceCards).then(renderCards);
 		}
-	});
-});
-
-showAcsessories.forEach(item => {
-	item.addEventListener('click', e => {
-		e.preventDefault();
-		filterCards('category', 'Accessories');
-		up();
-	});
-});
-showClothing.forEach(item => {
-	item.addEventListener('click', e => {
-		e.preventDefault();
-		filterCards('category', 'Clothing');
-		up();
 	});
 });
 
